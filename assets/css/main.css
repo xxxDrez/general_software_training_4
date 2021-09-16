@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 
-h1,h2,h3,h4,h5,h6,p{
+*{
     margin: 0;
 }
     
@@ -51,7 +51,8 @@ html,body{
     border-top-right-radius: 10px;
     transform-origin: bottom;
     z-index: 10;
-    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    transform: rotate(calc(var(--rotation) * 1deg));
+    animation: rotate-clock 60s infinite steps(60);
 }
 
 .clock__body .clock__minute {
@@ -69,6 +70,7 @@ html,body{
     transform-origin: bottom;
     z-index: 10;
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    animation: rotate-clock 3600s infinite steps(60);
 }
 
 .clock__body .clock__hour {
@@ -86,6 +88,7 @@ html,body{
     transform-origin: bottom;
     z-index: 10;
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    animation: rotate-clock 43200s infinite steps(60);
 }
 
 .clock__body::after {
@@ -123,3 +126,10 @@ html,body{
 .clock__body .clock__number_9 { --rotation: 270deg; }
 .clock__body .clock__number_10 { --rotation: 300deg; }
 .clock__body .clock__number_11 { --rotation: 330deg; }
+
+
+@keyframes rotate-clock {
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
